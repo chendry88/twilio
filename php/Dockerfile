@@ -14,6 +14,10 @@ RUN apt update \
             pdo \
             pdo_pgsql \
             pgsql
+
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
 RUN a2enmod rewrite
 
 WORKDIR /var/www/laravel_docker
